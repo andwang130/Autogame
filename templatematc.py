@@ -1,9 +1,18 @@
 import cv2
 import numpy as np
 from PIL import ImageGrab
-'''图片对比类'''
+'''图片对比模块'''
 class img_jeg:
     def mathc_img(self,Target,value=None,image=None):
+        '''
+        图片对比方法
+        传入对比的图片，和模板图片
+        和相似度，相似度和模板图片有默认值，在不输入的情况下，会赋值为0.9和当前屏幕截图
+        :param Target:
+        :param value:
+        :param image:
+        :return:
+        '''
         if not image:
             image=self.screenshot()
         if not value:
@@ -30,6 +39,7 @@ class img_jeg:
         # cv2.waitKey(0)
         # cv2.destroyAllWindows()
     def screenshot(self,path='temlpath.jpg'):
+        '''屏幕截图方法'''
         im=ImageGrab.grab()#截取当前屏幕。不加参数默认截取全屏
         im.save(path)
         return path
